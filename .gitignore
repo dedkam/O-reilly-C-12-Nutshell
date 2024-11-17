@@ -1,0 +1,10 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/.vs
+/C#12 Nutshell.sln
+/Chapter2/bin/Debug/net8.0
+/Chapter2/obj/Debug/net8.0/ref
+/Chapter2/obj/Debug/net8.0/refint
+/Chapter2/obj/Debug/net8.0/Chapter2.sourcelink.json
