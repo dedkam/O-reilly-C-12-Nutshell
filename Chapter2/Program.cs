@@ -1,4 +1,5 @@
 ﻿using Animals;
+using System.Threading.Channels;
 internal class Program
 {
     private static void Main(string[] args) // Program entry point
@@ -32,10 +33,49 @@ internal class Program
             {
               "Name" : "Joe"
             }
-            """); 
+            """);
+
+        char[] vowels = new char[5] { 'a', 'e', 'i', 'o', 'u' };
+        Arrays array = new Arrays();
+        array.Print(vowels);
+
+        // INDICES
+        char lastElement = vowels[^1]; // refers to the last element
+        char secondToLast = vowels[^2]; // refers to the second-to-last
+
+        // RANGES - "slice" an array by using .. operator
+        char[] firstTwo = vowels[..2];    // 'a', 'e'
+        char[] lastThree = vowels[2..];    // 'i', 'o', 'u'
+        char[] middleOne = vowels[2..3];   // 'i'
+        // The second number in the range is exclusive, so ..2 returns the elements before vowels[2].
+
+        // Creating an array always preinitializes the elements with default values.
+        // The default value for a type is the result of a bitwise zeroing of memory.
+        // For example, consider creating an array of integers.
+        int[] a = new int[1000];
+        Console.WriteLine(a[123]); // 0
+
     }
 
+    public class Arrays
+    {
 
+        
+        // or
+        // char[] vowels = {'a','e','i','o','u'};
+        
+        
+
+        public void Print(char[] charArray)
+        {
+            for (int i = 0; i < charArray.Length; i++)
+            {
+                Console.WriteLine("'" + charArray[i] + "'");
+            }
+        }
+        
+
+    }
 }
 
 namespace Animals
