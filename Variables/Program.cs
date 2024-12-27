@@ -1,4 +1,9 @@
-﻿using System.Diagnostics.CodeAnalysis;
+﻿using Microsoft.VisualBasic;
+using System;
+using System.Diagnostics.CodeAnalysis;
+using static System.Runtime.InteropServices.JavaScript.JSType;
+using System.Diagnostics.Metrics;
+using System.Runtime.Intrinsics.X86;
 
 namespace Variables
 {
@@ -80,6 +85,66 @@ namespace Variables
             int value5 = Convert.ToInt32(1.5m); // converting rounds up
             Console.WriteLine(value5); // 2
 
+            // TryParse
+            string value3 = "102";
+            string value4 = "UcY++6pwr+.XuCp";
+            int result2 = 0;
+            if (int.TryParse(value3, out result2))
+            {
+                Console.WriteLine($"Measurement: {result2}");
+            }
+            else
+            {
+                Console.WriteLine("Unable to parse string value");
+            }
+
+            // Casting 
+
+            string[] values = { "12.3", "45", "ABC", "11", "DEF" };
+
+            decimal total = 0m;
+            string messageToDisplay = string.Empty;
+            foreach (string v in values)
+            {
+                decimal number;
+                if (decimal.TryParse(v, out number))
+                {
+                    total += number;
+                }
+                else
+                {
+                    messageToDisplay += v;
+                }
+            }
+            Console.WriteLine($"Message: {messageToDisplay}");
+            Console.WriteLine(@"Total: {0}", total);
+
+
+            int value11 = 11;
+            decimal value22 = 6.2m;
+            float value33 = 4.3f;
+
+            // Your code here to set result1
+            // Hint: You need to round the result to nearest integer (don't just truncate)
+            int result11 = Convert.ToInt32(value11 / value22);
+            Console.WriteLine($"Divide value1 by value2, display the result as an int: {result11}");
+
+            // Your code here to set result2
+            decimal result22 = value22 / (decimal)value33;
+            Console.WriteLine($"Divide value2 by value3, display the result as a decimal: {result22}");
+
+            // Your code here to set result3
+            float result33 = value33 / value11;
+            Console.WriteLine($"Divide value3 by value1, display the result as a float: {result33}");
+
+
+            //SUMMARY
+            // You used implicit conversion, relying on the C# compiler to perform widening conversions. When the compiler was unable to perform an implicit conversion,
+            // you used explicit conversions. You used the ToString() method to explicitly convert a numeric data type into a string.
+            // When you needed to perform narrowing conversions, you used several different techniques.You used the casting operator () when the conversion could be
+            // made safely and were willing to accept truncation of values after the decimal. And you used the Convert() method when you wanted to perform a conversion
+            // and use common rounding rules when performing a narrowing conversion.
+            // Finally, you used the TryParse() methods when the conversion from a string to a numeric data type could potentially result in a data type conversion exception.
         }
     }
 }
