@@ -245,6 +245,31 @@ namespace Variables
 
             Console.WriteLine(comparisonMessage);
 
+            string message5 = "Find what is (inside the parentheses)";
+
+            int openingPosition = message5.IndexOf('(');
+            int closingPosition = message5.IndexOf(')');
+
+            Console.WriteLine(openingPosition);
+            Console.WriteLine(closingPosition);
+
+            Console.WriteLine(message5.Substring(openingPosition, closingPosition-openingPosition));
+
+            const string input3 = "<div><h2>Widgets &trade;</h2><span>5000</span></div>";
+
+            int quantityStart = input3.IndexOf("<span>") + "<span>".Length;
+            int quantityEnd = input3.IndexOf("</span>");
+
+            int outputStart = input3.IndexOf("<div>") + "<div>".Length;
+            int outputEnd = input3.IndexOf("</div>");
+            string quantity = input3.Substring(quantityStart, quantityEnd - quantityStart);
+            string output = input3.Substring(outputStart, outputEnd-outputStart);
+
+            // Your work here
+
+            Console.WriteLine(quantity);
+            Console.WriteLine(output);
+
         }
     }
 }
